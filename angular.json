@@ -24,9 +24,31 @@
               "src/assets"
             ],
             "styles": [
+              "src/assets/css/sb-admin-2.min.css",
+              "src/assets/css/dataTables.bootstrap4.min.css",
+              "./node_modules/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css",
+              "./node_modules/datatables.net-colreorder-bs4/css/colReorder.bootstrap4.min.css",
+              "./node_modules/datatables.net-scroller-bs4/css/scroller.bootstrap4.min.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/jquery/dist/jquery.min.js",
+              "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+              "./node_modules/jszip/dist/jszip.js",
+              "./node_modules/pdfmake/build/pdfmake.min.js",
+              "./node_modules/pdfmake/build/vfs_fonts.js",
+              "./node_modules/datatables.net/js/jquery.dataTables.min.js",
+              "./node_modules/datatables.net-buttons/js/dataTables.buttons.min.js",
+              "src/assets/js/dataTables.bootstrap4.min.js",
+              "./node_modules/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js",
+              "./node_modules/datatables.net-buttons/js/buttons.colVis.min.js",
+              "./node_modules/datatables.net-buttons/js/buttons.html5.min.js",
+              "./node_modules/datatables.net-buttons/js/buttons.print.min.js",
+              "./node_modules/datatables.net-colreorder-bs4/js/colReorder.bootstrap4.min.js",
+              "./node_modules/datatables.net-scroller-bs4/js/scroller.bootstrap4.min.js",
+              "src/assets/js/dataTables.fixedColumns.min.js",
+              "./node_modules/jwt-decode/build/jwt-decode.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -62,7 +84,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "br-hiring-tracker:build"
+            "browserTarget": "br-hiring-tracker:build",
+            "proxyConfig": "proxy.conf.json"
           },
           "configurations": {
             "production": {
