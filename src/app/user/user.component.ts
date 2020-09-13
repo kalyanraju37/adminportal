@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EndService } from '../helpers/endpoints.enum';
 
 declare var $:any;
 declare var DataTable:any;
@@ -15,7 +16,7 @@ export class UserComponent implements OnInit {
   ngOnInit(): void {
     $(document).ready(function() {
       $('#viewUsers').DataTable( {
-          "ajax": '/getUsers',
+          "ajax": EndService.GetUsers,
           "columns": [
             { "data": "userName" },
             { "data": "firstName" },

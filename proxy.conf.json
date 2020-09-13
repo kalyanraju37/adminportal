@@ -1,6 +1,6 @@
 {
   "/userLogin": {
-    "target": "http://7534c2083ece.ngrok.io/api/v1/users/signin",
+    "target": "http://fbe38af88354.ngrok.io//api/v1/users/signin",
     "secure": false,
     "pathRewrite": {
       "^/userLogin": ""
@@ -8,7 +8,7 @@
     "changeOrigin": true
   },
   "/getAllPositions": {
-    "target": "http://7534c2083ece.ngrok.io/api/v1/positions/",
+    "target": "http://fbe38af88354.ngrok.io//api/v1/positions/",
     "secure": false,
     "pathRewrite": {
       "^/getAllPositions": ""
@@ -16,7 +16,7 @@
     "changeOrigin": true
   },
   "/getPosition/*": {
-    "target": "http://7534c2083ece.ngrok.io/api/v1/positions",
+    "target": "http://fbe38af88354.ngrok.io//api/v1/positions",
     "secure": false,
     "pathRewrite": {
       "^/getPosition": ""
@@ -24,7 +24,7 @@
     "changeOrigin": true
   },
   "/getAuditPositions": {
-    "target": "http://7534c2083ece.ngrok.io/api/v1/positions/audit/",
+    "target": "http://fbe38af88354.ngrok.io//api/v1/positions/audit/",
     "secure": false,
     "pathRewrite": {
       "^/getAuditPositions": ""
@@ -32,7 +32,7 @@
     "changeOrigin": true
   },
   "/getAuditPosition/*": {
-    "target": "http://7534c2083ece.ngrok.io/api/v1/positions/audit/",
+    "target": "http://fbe38af88354.ngrok.io//api/v1/positions/audit/",
     "secure": false,
     "pathRewrite": {
       "^/getAuditPosition": ""
@@ -40,7 +40,7 @@
     "changeOrigin": true
   },
   "/addPosition": {
-    "target": "http://7534c2083ece.ngrok.io/api/v1/positions/",
+    "target": "http://fbe38af88354.ngrok.io//api/v1/positions/",
     "secure": false,
     "pathRewrite": {
       "^/addPosition": ""
@@ -48,7 +48,7 @@
     "changeOrigin": true
   },
   "/getRefCodes": {
-    "target": "http://7534c2083ece.ngrok.io/api/v1/refcodes/",
+    "target": "http://fbe38af88354.ngrok.io//api/v1/refcodes/",
     "secure": false,
     "pathRewrite": {
       "^/getRefCodes": ""
@@ -56,7 +56,7 @@
     "changeOrigin": true
   },
   "/getMasterDataByType/*": {
-    "target": "http://7534c2083ece.ngrok.io/api/v1/refcodes/types",
+    "target": "http://fbe38af88354.ngrok.io//api/v1/refcodes/types",
     "secure": false,
     "pathRewrite": {
       "^/getMasterDataByType": ""
@@ -64,7 +64,7 @@
     "changeOrigin": true
   },
   "/addMasterData": {
-    "target": "http://7534c2083ece.ngrok.io/api/v1/refcodes/",
+    "target": "http://fbe38af88354.ngrok.io//api/v1/refcodes/",
     "secure": false,
     "pathRewrite": {
       "^/addMasterData": ""
@@ -72,7 +72,7 @@
     "changeOrigin": true
   },
   "/getAllRefCodes": {
-    "target": "http://7534c2083ece.ngrok.io/api/v1/refcodes/all",
+    "target": "http://fbe38af88354.ngrok.io//api/v1/refcodes/all",
     "secure": false,
     "pathRewrite": {
       "^/getAllRefCodes": ""
@@ -80,7 +80,7 @@
     "changeOrigin": true
   },
   "/getRefDropdown": {
-    "target": "http://7534c2083ece.ngrok.io/api/v1/refcodes/types",
+    "target": "http://fbe38af88354.ngrok.io//api/v1/refcodes/types",
     "secure": false,
     "pathRewrite": {
       "^/getRefDropdown": ""
@@ -88,7 +88,7 @@
     "changeOrigin": true
   },
   "/userSignup": {
-    "target": "http://7534c2083ece.ngrok.io/api/v1/users/signup",
+    "target": "http://fbe38af88354.ngrok.io//api/v1/users/signup",
     "secure": false,
     "pathRewrite": {
       "^/userSignup": ""
@@ -96,7 +96,7 @@
     "changeOrigin": true
   },
   "/userRoles": {
-    "target": "http://7534c2083ece.ngrok.io/api/v1/roles/",
+    "target": "http://fbe38af88354.ngrok.io//api/v1/roles/",
     "secure": false,
     "pathRewrite": {
       "^/userRoles": ""
@@ -104,7 +104,7 @@
     "changeOrigin": true
   },
   "/getUsers": {
-    "target": "http://7534c2083ece.ngrok.io/api/v1/users/",
+    "target": "http://fbe38af88354.ngrok.io//api/v1/users/",
     "secure": false,
     "pathRewrite": {
       "^/getUsers": ""
@@ -112,18 +112,18 @@
     "changeOrigin": true
   },
   "/resetPassword": {
-    "target": "http://7534c2083ece.ngrok.io/api/v1/users/reset/password",
+    "target": "http://fbe38af88354.ngrok.io//api/v1/users/reset/password",
     "secure": false,
     "pathRewrite": {
       "^/resetPassword": ""
     },
     "changeOrigin": true
   },
-  "/dashBoard": {
-    "target": "http://7534c2083ece.ngrok.io/api/v1/positions/dashboard/",
+  "/dashboard": {
+    "target": "http://fbe38af88354.ngrok.io//api/v1/positions/dashboard/",
     "secure": false,
     "pathRewrite": {
-      "^/dashBoard": ""
+      "^/dashboard": ""
     },
     "changeOrigin": true
   }

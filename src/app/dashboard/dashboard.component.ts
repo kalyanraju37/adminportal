@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { EndService } from '../helpers/endpoints.enum';
 
 @Component({
   selector: 'app-dashboard',
@@ -18,7 +19,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
 
-    var getDashBoard = this.http.get('/dashBoard');
+    var getDashBoard = this.http.get(EndService.Dashboard);
     getDashBoard.subscribe((refcode: any) => {
       this.openPositions = refcode.data.openPositions;
       this.onHoldPositions = refcode.data.onHoldPositions;

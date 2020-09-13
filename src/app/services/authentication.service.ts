@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import {Router} from '@angular/router';
 import { map } from 'rxjs/operators';
 import { User } from '../models/user';
+import { EndService } from '../helpers/endpoints.enum';
 
 declare var jwt_decode: any;
 
@@ -18,7 +19,7 @@ export class AuthenticationService {
         console.log(username);
         console.log(password);
 
-        return this.http.post<any>(`/userLogin`, { userName: username, password: password })
+        return this.http.post<any>(EndService.UserLogin, { userName: username, password: password })
         .pipe(map(user => {
             console.log('Login Successful'+user);
             // login successful if there's a jwt token in the response

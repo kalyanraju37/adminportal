@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { EndService } from 'src/app/helpers/endpoints.enum';
 
 declare var $: any;
 
@@ -52,7 +53,7 @@ export class EditPositionComponent implements OnInit {
       hiringStatus: new FormControl('', Validators.required)
     });
 
-    var getRefcode = this.http.get('/getRefCodes');
+    var getRefcode = this.http.get(EndService.GetRefCodes);
     getRefcode.subscribe((refcode: any) => {
       this.billingCodes = refcode.data.BILLING_CODE;
       this.indiaLeaders = refcode.data.INDIA_LEADER;
@@ -67,7 +68,7 @@ export class EditPositionComponent implements OnInit {
     });
 
 
-    var getPosition = this.http.get('/getPosition/' + this.positionId);
+    var getPosition = this.http.get(EndService.GetPosition + this.positionId);
     getPosition.subscribe((position: any) => {
       self.positionEditForm.patchValue({
         positionId: position.data.positionId,

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { EndService } from 'src/app/helpers/endpoints.enum';
 
 declare var $: any;
 
@@ -27,7 +28,7 @@ export class AddUserComponent implements OnInit {
       userRole: new FormControl('', Validators.required)
     });
 
-    var getRefcode = this.http.get('/userRoles');
+    var getRefcode = this.http.get(EndService.GetUserRoles);
     getRefcode.subscribe((refcode: any) => {
       this.roles = refcode.data;
     });
@@ -35,7 +36,7 @@ export class AddUserComponent implements OnInit {
 
   submit() {
     console.log(JSON.stringify({ data: this.userAddForm.value }, null, 4));
-    var request = this.http.post('/userSignup', JSON.stringify(this.userAddForm.value));
+    var request = this.http.post(EndService.GetUserSignup, JSON.stringify(this.userAddForm.value));
     request.subscribe((res: string) => {
       $("#userModal").modal('show');
     });

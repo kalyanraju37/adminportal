@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { EndService } from 'src/app/helpers/endpoints.enum';
 
 declare var $: any;
 declare var DataTable: any;
@@ -22,10 +23,10 @@ export class AuditPositionComponent implements OnInit {
     this.positionId = this.router.url.split('/')[2];
     //Construct the Service URL
     if (this.positionId === undefined) {
-      self.auditServiceUrl = '/getAuditPositions';
+      self.auditServiceUrl = EndService.GetAuditPositions;
     }
     else {
-      self.auditServiceUrl = '/getAuditPosition/' + this.positionId;
+      self.auditServiceUrl = EndService.GetAuditPosition + this.positionId;
     }
     //$('#auditPositions').DataTable().destroy();
     $(document).ready(function () {

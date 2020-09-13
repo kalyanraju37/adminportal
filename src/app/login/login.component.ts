@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { first } from 'rxjs/operators';
 import { AuthenticationService } from '../services/authentication.service';
 import { AlertService } from '../services/alert.service';
+import { EndService } from '../helpers/endpoints.enum';
 
 @Component({
     selector: 'app-login',
@@ -60,7 +61,7 @@ export class LoginComponent implements OnInit {
             .subscribe(
                 data => {
                     if ('Failure' != data.status) {
-                        this.router.navigate(['/dashboard']);
+                        this.router.navigate([EndService.Dashboard]);
                     }
                     else {
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
+import { EndService } from 'src/app/helpers/endpoints.enum';
 
 declare var $: any;
 declare var DataTable: any;
@@ -42,7 +43,7 @@ export class AddMasterdataComponent implements OnInit {
       params => {
         const paramType = params['type'];
         this.typeName = paramType;
-        let refUrl = "/getMasterDataByType/" + paramType;
+        let refUrl = EndService.MasterDataByType + paramType;
         $('#masterDataCategory').DataTable().destroy();
         $(document).ready(function () {
           var table = $('#masterDataCategory').DataTable({
@@ -111,7 +112,7 @@ export class AddMasterdataComponent implements OnInit {
       refName: this.typeName
     });
 
-    var request = this.http.post('/addMasterData', JSON.stringify(this.masterdataAddForm.value));
+    var request = this.http.post(EndService.AddMasterData, JSON.stringify(this.masterdataAddForm.value));
     request.subscribe((res: string) => {
       $('#masterDataCategory').DataTable().ajax.reload();
     });
@@ -122,14 +123,14 @@ export class AddMasterdataComponent implements OnInit {
       id: new FormControl(this.selectedData['id'], [Validators.required]),
       refStatus: new FormControl('0')
     });
-    var request = this.http.post('/addMasterData', JSON.stringify(this.masterdataAddForm.value));
+    var request = this.http.post(EndService.AddMasterData, JSON.stringify(this.masterdataAddForm.value));
     request.subscribe((res: string) => {
       $('#masterDataCategory').DataTable().ajax.reload();
     });
   }
 
   edit() {
-    var request = this.http.post('/addMasterData', JSON.stringify(this.masterdataEditForm.value));
+    var request = this.http.post(EndService.AddMasterData, JSON.stringify(this.masterdataEditForm.value));
     request.subscribe((res: string) => {
       $('#masterDataCategory').DataTable().ajax.reload();
     });

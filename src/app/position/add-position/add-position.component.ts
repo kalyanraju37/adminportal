@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { EndService } from 'src/app/helpers/endpoints.enum';
 
 
 declare var $: any;
@@ -47,7 +48,7 @@ export class AddPositionComponent implements OnInit {
       hiringStatus: new FormControl('', Validators.required),
     });
 
-    var getRefcode = this.http.get('/getRefCodes');
+    var getRefcode = this.http.get(EndService.GetRefCodes);
     getRefcode.subscribe((refcode: any) => {
       this.billingCodes = refcode.data.BILLING_CODE;
       this.indiaLeaders = refcode.data.INDIA_LEADER;
@@ -64,7 +65,7 @@ export class AddPositionComponent implements OnInit {
 
   submit() {
     const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
-    var request = this.http.post('/addPosition', JSON.stringify(this.positionAddForm.value), { headers: headers });
+    var request = this.http.post(EndService.AddPosition, JSON.stringify(this.positionAddForm.value), { headers: headers });
     request.subscribe((res: string) => {
       $("#positionModal").modal('show');
     });

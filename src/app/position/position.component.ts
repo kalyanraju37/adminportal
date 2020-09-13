@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EndService } from '../helpers/endpoints.enum';
 
 declare var $: any;
 declare var DataTable: any;
@@ -17,7 +18,7 @@ export class PositionComponent implements OnInit {
     $(document).ready(function () {
 
       $('#viewPositions').DataTable({
-        "ajax": "/getAllPositions",
+        "ajax": EndService.GetAllPositions,
         "autoWidth": false,
         // scrollY: "400px",
         // scrollX: true,
