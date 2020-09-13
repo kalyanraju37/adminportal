@@ -1,0 +1,28 @@
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+  
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <img src="./assets/ICS-HC-logo.png" id="icon" alt="User Icon" />
+      </div>
+     {{error}} <i class="fas fa-exclamation" *ngIf="error"></i>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" id="login-form">
+        <div class="form-group">
+        <input type="text" id="login" formControlName="username" class="form-control" name="login" placeholder="Login" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" autofocus />
+        </div>
+        <div class="form-group">
+        <input type="password" id="password" formControlName="password" class="form-control" name="password" placeholder="Password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+        </div>
+        <input type="submit" class="fadeIn fourth" value="Log In">
+    </form>
+      
+      <!-- Remind Passowrd -->
+      <div id="formFooter">
+        <a class="underlineHover" href="#">Forgot Password?</a>
+      </div>
+  
+    </div>
+  </div>
+
+  

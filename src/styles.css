@@ -1,1 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
+table.table-bordered.dataTable tbody th, table.table-bordered.dataTable tbody td {
+    white-space: nowrap;
+}
+.table thead th {
+    white-space: nowrap;
+}

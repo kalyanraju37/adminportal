@@ -1,0 +1,165 @@
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+  <!-- Page Heading -->
+  <h1 class="h3 mb-2 text-gray-800">Create Position</h1>
+
+  <div class="row">
+
+    <div class="col-lg-12">
+
+      <div class="card shadow mb-4">
+        <div class="card-body">
+          <form [formGroup]="positionAddForm" (ngSubmit)="submit()">
+            <div class="form-row">
+              <div class="col-md-4 mb-3">
+                <label for="positionId">Position Id</label>
+                <input type="text" formControlName="positionId" class="form-control" id="positionId"
+                  placeholder="John" required>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="associateId">Associate Id</label>
+                <input type="number" min="0" formControlName="associateId" class="form-control" id="associateId"
+                  placeholder="313315" required>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="associateName">Associate Name</label>
+                <input type="text" formControlName="associateName" class="form-control" id="associateName"
+                  placeholder="John" required>
+              </div>
+
+            </div>
+            <div class="form-row">
+              <div class="col-md-4 mb-3">
+                <label for="email">Email ID</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroupPrepend2">@</span>
+                  </div>
+                  <input type="email" formControlName="email" class="form-control" id="email"
+                    placeholder="john@broadridge.com" aria-describedby="inputGroupPrepend2" required>
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="positionType">FTE/Consultant</label>
+                <select formControlName="positionType" class="custom-select my-1 mr-sm-2" id="positionType">
+                  <option selected>Choose...</option>
+                  <option *ngFor="let positionType of positionTypes" value={{positionType.refId}}>
+                    {{positionType.refCode}}</option>
+                </select>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="team">Team</label>
+                <select formControlName="team" class="custom-select my-1 mr-sm-2" id="team">
+                  <option selected>Choose...</option>
+                  <option *ngFor="let team of teams" value={{team.refId}}>{{team.refCode}}</option>
+                </select>
+              </div>
+
+            </div>
+            <div class="form-row">
+              <div class="col-md-4 mb-3">
+                <label for="indiaPoc">India POC</label>
+                <select formControlName="indiaPoc" class="custom-select my-1 mr-sm-2" id="indiaPoc">
+                  <option selected>Choose...</option>
+                  <option *ngFor="let indiaPoc of indiaPocs" value={{indiaPoc.refId}}>{{indiaPoc.refCode}}</option>
+                </select>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="indiaLeader">India Leader</label>
+                <select formControlName="indiaLeader" class="custom-select my-1 mr-sm-2" id="indiaLeader">
+                  <option selected>Choose...</option>
+                  <option *ngFor="let indiaLeader of indiaLeaders" value={{indiaLeader.refId}}>{{indiaLeader.refCode}}
+                  </option>
+                </select>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="usPoc">US Poc</label>
+                <select formControlName="usPoc" class="custom-select my-1 mr-sm-2" id="usPoc">
+                  <option selected>Choose...</option>
+                  <option *ngFor="let usPoc of usPocs" value={{usPoc.refId}}>{{usPoc.refCode}}</option>
+                </select>
+              </div>
+
+            </div>
+            <div class="form-row">
+              <div class="col-md-4 mb-3">
+                <label for="usLeader">US Leader</label>
+                <select formControlName="usLeader" class="custom-select my-1 mr-sm-2" id="usLeader">
+                  <option selected>Choose...</option>
+                  <option *ngFor="let usLeader of usLeaders" value={{usLeader.refId}}>{{usLeader.refCode}}</option>
+                </select>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="billingCode">Billing Code</label>
+                <select formControlName="billingCode" class="custom-select my-1 mr-sm-2" id="billingCode">
+                  <option selected>Choose...</option>
+                  <option *ngFor="let billingCode of billingCodes" value={{billingCode.refId}}>{{billingCode.refCode}}
+                  </option>
+                </select>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="service">R&D</label>
+                <select formControlName="service" class="custom-select my-1 mr-sm-2" id="service">
+                  <option selected>Choose...</option>
+                  <option *ngFor="let department of departments" value={{department.refId}}>{{department.refCode}}
+                  </option>
+                </select>
+              </div>
+
+            </div>
+            <div class="form-row">
+              <div class="col-md-4 mb-3">
+                <label for="technology">Technology</label>
+                <select formControlName="technology" class="custom-select my-1 mr-sm-2" id="technology">
+                  <option selected>Choose...</option>
+                  <option *ngFor="let technology of technologies" value={{technology.refId}}>{{technology.refCode}}
+                  </option>
+                </select>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="department">Department</label>
+                <select formControlName="department" class="custom-select my-1 mr-sm-2" id="department">
+                  <option selected>Choose...</option>
+                  <option *ngFor="let department of departments" value={{department.refId}}>{{department.refCode}}
+                  </option>
+                </select>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="hiringStatus">Hiring Status</label>
+                <select formControlName="hiringStatus" class="custom-select my-1 mr-sm-2" id="hiringStatus">
+                  <option selected>Choose...</option>
+                  <option *ngFor="let status of hiringStatus" value={{status.refId}}>{{status.refCode}}</option>
+                </select>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Add Position</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="positionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Create Position</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Position Created Successfully
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="success()">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End of Modal -->
+</div>
