@@ -16,6 +16,8 @@ export class EditPositionComponent implements OnInit {
   positionEditForm: FormGroup;
   positionId: string;
 
+  positionEditObj;
+
   billingCodes = [];
   indiaLeaders = [];
   hiringStatus = [];
@@ -76,7 +78,8 @@ export class EditPositionComponent implements OnInit {
 
     var getPosition = this.http.get(EndService.GetPosition + this.positionId);
     getPosition.subscribe((position: any) => {
-      self.positionEditForm.patchValue({
+      
+       self.positionEditForm.patchValue({
         positionId: position.data.positionId,
         associateId: position.data.associateId,
         associateName: position.data.associateName,
@@ -96,14 +99,22 @@ export class EditPositionComponent implements OnInit {
         remarks: position.data.remarks
       });
 
+      this.positionEditObj = {...this.positionEditForm.value};
+
     });
   }
   submit() {
-    const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
-    var request = this.http.post('/addPosition', JSON.stringify(this.positionEditForm.value), { headers: headers });
-    request.subscribe((res: string) => {
+    if ((Object.entries(this.positionEditObj).toString() != Object.entries(this.positionEditForm.value).toString())) {
+      const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
+      var request = this.http.post('/addPosition', JSON.stringify(this.positionEditForm.value), { headers: headers });
+      request.subscribe((res: string) => {
+        $("#positionModal").modal('show');
+      });
+    }
+    else
+    {
       $("#positionModal").modal('show');
-    });
+    }
   }
 
   success() {

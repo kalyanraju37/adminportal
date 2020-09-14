@@ -30,10 +30,10 @@ export class PasswordComponent implements OnInit {
   }
 
   submit() {
-      var request = this.http.post(EndService.ResetPassword, JSON.stringify(this.resetPasswordForm.value));
-      request.subscribe((res: string) => {
-        this.router.navigate(['dashboard']);
-      });
+    var request = this.http.post(EndService.ResetPassword, JSON.stringify(this.resetPasswordForm.value));
+    request.subscribe((res: string) => {
+      this.router.navigate(['dashboard']);
+    });
   }
 
   get password() { return this.resetPasswordForm.get('password'); }

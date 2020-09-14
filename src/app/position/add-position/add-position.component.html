@@ -10,7 +10,7 @@
 
       <div class="card shadow mb-4">
         <div class="card-body">
-          <div class="card bg-danger text-white shadow" *ngIf="!positionAddForm.valid && positionAddForm.dirty">
+          <div class="card bg-danger text-white shadow" *ngIf="isErrorShow">
             <div class="card-body">
               <div class="text-white">
                 <small><sup><i class="fa fa-asterisk" aria-hidden="true"></i></sup></small>All fields are mandatory.
@@ -143,8 +143,8 @@
             </div>
             <div class="form-row">
               <div class="col-md-4 mb-3">
-                <label for="ftHeadCount"><small><sup><i class="fa fa-asterisk" aria-hidden="true"></i></sup></small>FT Head Count</label>
-                <select formControlName="ftHeadCount" class="custom-select my-1 mr-sm-2" id="ftHeadCount">
+                <label for="fteHeadCount"><small><sup><i class="fa fa-asterisk" aria-hidden="true"></i></sup></small>FT Head Count</label>
+                <select formControlName="fteHeadCount" class="custom-select my-1 mr-sm-2" id="fteHeadCount">
                   <option selected>Choose...</option>
                   <option *ngFor="let fteHeadCount of fteHeadCounts" value={{fteHeadCount.refId}}>
                     {{fteHeadCount.refCode}}
@@ -156,7 +156,7 @@
                 <input type="text" formControlName="remarks" class="form-control" id="remarks" />
               </div>
             </div>
-            <button type="submit" [disabled]="!positionAddForm.valid" class="btn btn-primary">Add Position</button>
+            <button type="submit" class="btn btn-primary">Add Position</button>
           </form>
         </div>
       </div>

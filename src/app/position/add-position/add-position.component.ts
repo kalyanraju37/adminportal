@@ -15,6 +15,7 @@ declare var $: any;
 export class AddPositionComponent implements OnInit {
 
   positionAddForm: FormGroup;
+  isErrorShow = false;
 
   billingCodes = [];
   indiaLeaders = [];
@@ -70,6 +71,13 @@ export class AddPositionComponent implements OnInit {
   }
 
   submit() {
+
+    if(!this.positionAddForm.valid)
+    {
+      this.isErrorShow = true;
+      return;
+    }
+
     const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
     var request = this.http.post(EndService.AddPosition, JSON.stringify(this.positionAddForm.value), { headers: headers });
     request.subscribe((res: string) => {
