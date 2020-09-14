@@ -17,19 +17,19 @@
 //   }
 
   export enum EndService {
-    UserLogin = "http://localhost:9090/api/v1/users/signin",
-    Dashboard = "http://localhost:9090/api/v1/positions/dashboard/",
-    RefCodes = "http://localhost:9090/api/v1/refcodes/all",
-    MasterDataByType = "http://localhost:9090/api/v1/refcodes/types",
-    AddMasterData = "http://localhost:9090/api/v1/refcodes/",
-    ResetPassword = "http://localhost:9090/api/v1/users/reset/password",
-    GetRefCodes = "http://localhost:9090/api/v1/refcodes/",
-    GetAuditPositions = "http://localhost:9090/api/v1/positions/audit/",
-    GetAuditPosition = "http://localhost:9090/api/v1/positions/audit/",
-    GetPosition = "http://localhost:9090/api/v1/positions",
-    AddPosition = "http://localhost:9090/api/v1/positions/",
-    GetAllPositions = "http://localhost:9090/api/v1/positions/",
-    GetUsers = "http://localhost:9090/api/v1/users/",
-    GetUserRoles = "http://localhost:9090/api/v1/roles/",
-    GetUserSignup = "http://localhost:9090/api/v1/users/signup"
+    UserLogin = "http://hbadm920S0005:9090/api/v1/users/signin",
+    Dashboard = "http://hbadm920S0005:9090/api/v1/positions/dashboard/",
+    RefCodes = "http://hbadm920S0005:9090/api/v1/refcodes/all",
+    MasterDataByType = "http://hbadm920S0005:9090/api/v1/refcodes/types",
+    AddMasterData = "http://hbadm920S0005:9090/api/v1/refcodes/",
+    ResetPassword = "http://hbadm920S0005:9090/api/v1/users/reset/password",
+    GetRefCodes = "http://hbadm920S0005:9090/api/v1/refcodes/",
+    GetAuditPositions = "http://hbadm920S0005:9090/api/v1/positions/audit/",
+    GetAuditPosition = "http://hbadm920S0005:9090/api/v1/positions/audit/",
+    GetPosition = "http://hbadm920S0005:9090/api/v1/positions",
+    AddPosition = "http://hbadm920S0005:9090/api/v1/positions/",
+    GetAllPositions = "http://hbadm920S0005:9090/api/v1/positions/",
+    GetUsers = "http://hbadm920S0005:9090/api/v1/users/",
+    GetUserRoles = "http://hbadm920S0005:9090/api/v1/roles/",
+    GetUserSignup = "http://hbadm920S0005:9090/api/v1/users/signup"
   }

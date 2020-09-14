@@ -6,12 +6,18 @@
 
     <!-- Sidebar - Brand -->
     <!-- <a class="sidebar-brand d-flex align-items-center justify-content-center" routerLink="dashboard">
-      <div class="sidebar-brand-text mx-3"><img src="./assets/HiringTrackerLogo.png" id="icon" alt="logo"
-          height="100" /></div>
-    </a> -->
+      <i class="fas fa-fw fa-tachometer-alt"></i>
+      <div class="sidebar-brand-text mx-3"><img src="./assets/logo-layout.png" id="icon" alt="logo"
+         /></div>
+    </a>  -->
+
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" routerLink="dashboard">
+      <i><img src="./assets/logo-white.png" id="icon" alt="logo" height=40 width=40/></i>
+      <div class="sidebar-brand-text mx-3"><img src="./assets/logo-text-white.png" id="icon" alt="logo" height=100 width=100/></div>
+    </a>
 
     <!-- Divider -->
-    <!-- <hr class="sidebar-divider my-0"> -->
+    <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
@@ -33,7 +39,8 @@
       <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
           <a class="collapse-item" routerLink="position">View Position</a>
-          <a class="collapse-item" routerLink="add-position" *ngIf="privileges !== undefined && privileges.includes('WRITE_PRIVILEGE')">Add Position</a>
+          <a class="collapse-item" routerLink="add-position"
+            *ngIf="privileges !== undefined && privileges.includes('WRITE_PRIVILEGE')">Add Position</a>
           <a class="collapse-item" routerLink="audit-position">View Audit Details</a>
         </div>
       </div>
@@ -78,7 +85,8 @@
       <div id="userManagement" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
           <a class="collapse-item" routerLink="user">View Users</a>
-          <a class="collapse-item" routerLink="add-user" *ngIf="privileges !== undefined && privileges.includes('WRITE_PRIVILEGE')">Add User</a>
+          <a class="collapse-item" routerLink="add-user"
+            *ngIf="privileges !== undefined && privileges.includes('WRITE_PRIVILEGE')">Add User</a>
         </div>
       </div>
     </li>
@@ -122,7 +130,7 @@
       <!-- Topbar -->
       <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
-        <img src="./assets/logo-layout.png" id="icon" alt="User Icon" />
+        <!-- <img src="./assets/logo-layout.png" id="icon" alt="ICS India HT" /> -->
 
         <!-- Sidebar Toggle (Topbar) -->
         <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -166,6 +174,14 @@
       <router-outlet></router-outlet>
 
     </div>
+
+    <footer class="sticky-footer bg-white">
+      <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+              <span>Copyright © Broadridge Financial Solutions 2020</span>
+          </div>
+      </div>
+  </footer>
 
   </div>
   <!-- End of Content Wrapper -->

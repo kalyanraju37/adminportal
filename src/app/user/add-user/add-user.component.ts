@@ -21,11 +21,11 @@ export class AddUserComponent implements OnInit {
   ngOnInit(): void {
     this.userAddForm = new FormGroup({
       userName: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required]),
-      password: new FormControl('', [Validators.required]),
-      firstName: new FormControl('', [Validators.required]),
-      lastName: new FormControl('', Validators.required),
-      userRole: new FormControl('', Validators.required)
+      email: new FormControl('', [Validators.required,Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]),
+      password: new FormControl('', [Validators.required,Validators.minLength(8)]),
+      firstName: new FormControl(''),
+      lastName: new FormControl(''),
+      userRole: new FormControl('')
     });
 
     var getRefcode = this.http.get(EndService.GetUserRoles);
@@ -35,7 +35,6 @@ export class AddUserComponent implements OnInit {
   }
 
   submit() {
-    console.log(JSON.stringify({ data: this.userAddForm.value }, null, 4));
     var request = this.http.post(EndService.GetUserSignup, JSON.stringify(this.userAddForm.value));
     request.subscribe((res: string) => {
       $("#userModal").modal('show');
@@ -46,5 +45,9 @@ export class AddUserComponent implements OnInit {
   {
     this.router.navigate(['app-user']);
   }
+
+  get userName() { return this.userAddForm.get('userName'); }
+  get password() { return this.userAddForm.get('password'); }
+  get email() { return this.userAddForm.get('email'); }
 
 }

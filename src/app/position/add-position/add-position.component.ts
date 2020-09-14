@@ -75,5 +75,4 @@ export class AddPositionComponent implements OnInit {
     this.router.navigate(['position']);
   }
 
-
 }

@@ -10,12 +10,21 @@
 
       <div class="card shadow mb-4">
         <div class="card-body">
+          <div class="card bg-danger text-white shadow"
+            *ngIf="!positionAddForm.valid && positionAddForm.dirty">
+            <div class="card-body">
+              <div class="text-white">
+                  All fields are mandatory.
+              </div>
+            </div>
+          </div>
+          <br />
           <form [formGroup]="positionAddForm" (ngSubmit)="submit()">
             <div class="form-row">
               <div class="col-md-4 mb-3">
                 <label for="positionId">Position Id</label>
-                <input type="text" formControlName="positionId" class="form-control" id="positionId"
-                  placeholder="John" required>
+                <input type="text" formControlName="positionId" class="form-control" id="positionId" placeholder="John"
+                  autofocus required>
               </div>
               <div class="col-md-4 mb-3">
                 <label for="associateId">Associate Id</label>
@@ -134,7 +143,7 @@
               </div>
             </div>
 
-            <button type="submit" class="btn btn-primary">Add Position</button>
+            <button type="submit" [disabled]="!positionAddForm.valid" class="btn btn-primary">Add Position</button>
           </form>
         </div>
       </div>
