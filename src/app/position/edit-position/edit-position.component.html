@@ -10,20 +10,27 @@
   
         <div class="card shadow mb-4">
           <div class="card-body">
+            <div class="card bg-danger text-white shadow" *ngIf="!positionEditForm.valid && positionEditForm.dirty">
+              <div class="card-body">
+                <div class="text-white">
+                  <small><sup><i class="fa fa-asterisk" aria-hidden="true"></i></sup></small>All fields are mandatory.
+                </div>
+              </div>
+            </div>
+            <br />
             <form [formGroup]="positionEditForm" (ngSubmit)="submit()">
               <div class="form-row">
                 <div class="col-md-4 mb-3">
-                  <label for="positionId">Position Id</label>
-                  <input type="text" formControlName="positionId" class="form-control" id="positionId"
-                    placeholder="John" required>
+                  <label for="positionId"><small><sup><i class="fa fa-asterisk" aria-hidden="true"></i></sup></small>Position Id</label>
+                  <input type="number" formControlName="positionId" class="form-control" id="positionId" required>
                 </div>
                 <div class="col-md-4 mb-3">
-                  <label for="associateId">Associate Id</label>
+                  <label for="associateId"><small><sup><i class="fa fa-asterisk" aria-hidden="true"></i></sup></small>Associate Id</label>
                   <input type="number" min="0" formControlName="associateId" class="form-control" id="associateId"
                     placeholder="313315" required>
                 </div>
                 <div class="col-md-4 mb-3">
-                  <label for="associateName">Associate Name</label>
+                  <label for="associateName"><small><sup><i class="fa fa-asterisk" aria-hidden="true"></i></sup></small>Associate Name</label>
                   <input type="text" formControlName="associateName" class="form-control" id="associateName"
                     placeholder="John" required>
                 </div>
@@ -31,7 +38,7 @@
               </div>
               <div class="form-row">
                 <div class="col-md-4 mb-3">
-                  <label for="email">Email ID</label>
+                  <label for="email"><small><sup><i class="fa fa-asterisk" aria-hidden="true"></i></sup></small>Email ID</label>
                   <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text" id="inputGroupPrepend2">@</span>
@@ -41,7 +48,7 @@
                   </div>
                 </div>
                 <div class="col-md-4 mb-3">
-                  <label for="positionType">FTE/Consultant</label>
+                  <label for="positionType"><small><sup><i class="fa fa-asterisk" aria-hidden="true"></i></sup></small>FTE/Consultant</label>
                   <select formControlName="positionType" class="custom-select my-1 mr-sm-2" id="positionType">
                     <option selected>Choose...</option>
                     <option *ngFor="let positionType of positionTypes" value={{positionType.refId}}>
@@ -49,7 +56,7 @@
                   </select>
                 </div>
                 <div class="col-md-4 mb-3">
-                  <label for="team">Team</label>
+                  <label for="team"><small><sup><i class="fa fa-asterisk" aria-hidden="true"></i></sup></small>Team</label>
                   <select formControlName="team" class="custom-select my-1 mr-sm-2" id="team">
                     <option selected>Choose...</option>
                     <option *ngFor="let team of teams" value={{team.refId}}>{{team.refCode}}</option>
@@ -59,14 +66,14 @@
               </div>
               <div class="form-row">
                 <div class="col-md-4 mb-3">
-                  <label for="indiaPoc">India POC</label>
+                  <label for="indiaPoc"><small><sup><i class="fa fa-asterisk" aria-hidden="true"></i></sup></small>India POC</label>
                   <select formControlName="indiaPoc" class="custom-select my-1 mr-sm-2" id="indiaPoc">
                     <option selected>Choose...</option>
                     <option *ngFor="let indiaPoc of indiaPocs" value={{indiaPoc.refId}}>{{indiaPoc.refCode}}</option>
                   </select>
                 </div>
                 <div class="col-md-4 mb-3">
-                  <label for="indiaLeader">India Leader</label>
+                  <label for="indiaLeader"><small><sup><i class="fa fa-asterisk" aria-hidden="true"></i></sup></small>India Leader</label>
                   <select formControlName="indiaLeader" class="custom-select my-1 mr-sm-2" id="indiaLeader">
                     <option selected>Choose...</option>
                     <option *ngFor="let indiaLeader of indiaLeaders" value={{indiaLeader.refId}}>{{indiaLeader.refCode}}
@@ -74,7 +81,7 @@
                   </select>
                 </div>
                 <div class="col-md-4 mb-3">
-                  <label for="usPoc">US Poc</label>
+                  <label for="usPoc"><small><sup><i class="fa fa-asterisk" aria-hidden="true"></i></sup></small>US Poc</label>
                   <select formControlName="usPoc" class="custom-select my-1 mr-sm-2" id="usPoc">
                     <option selected>Choose...</option>
                     <option *ngFor="let usPoc of usPocs" value={{usPoc.refId}}>{{usPoc.refCode}}</option>
@@ -84,14 +91,14 @@
               </div>
               <div class="form-row">
                 <div class="col-md-4 mb-3">
-                  <label for="usLeader">US Leader</label>
+                  <label for="usLeader"><small><sup><i class="fa fa-asterisk" aria-hidden="true"></i></sup></small>US Leader</label>
                   <select formControlName="usLeader" class="custom-select my-1 mr-sm-2" id="usLeader">
                     <option selected>Choose...</option>
                     <option *ngFor="let usLeader of usLeaders" value={{usLeader.refId}}>{{usLeader.refCode}}</option>
                   </select>
                 </div>
                 <div class="col-md-4 mb-3">
-                  <label for="billingCode">Billing Code</label>
+                  <label for="billingCode"><small><sup><i class="fa fa-asterisk" aria-hidden="true"></i></sup></small>Billing Code</label>
                   <select formControlName="billingCode" class="custom-select my-1 mr-sm-2" id="billingCode">
                     <option selected>Choose...</option>
                     <option *ngFor="let billingCode of billingCodes" value={{billingCode.refId}}>{{billingCode.refCode}}
@@ -99,10 +106,10 @@
                   </select>
                 </div>
                 <div class="col-md-4 mb-3">
-                  <label for="service">R&D</label>
-                  <select formControlName="service" class="custom-select my-1 mr-sm-2" id="service">
+                  <label for="serviceType"><small><sup><i class="fa fa-asterisk" aria-hidden="true"></i></sup></small>R&D</label>
+                  <select formControlName="serviceType" class="custom-select my-1 mr-sm-2" id="serviceType">
                     <option selected>Choose...</option>
-                    <option *ngFor="let department of departments" value={{department.refId}}>{{department.refCode}}
+                    <option *ngFor="let workType of workTypes" value={{workType.refId}}>{{workType.refCode}}
                     </option>
                   </select>
                 </div>
@@ -110,7 +117,7 @@
               </div>
               <div class="form-row">
                 <div class="col-md-4 mb-3">
-                  <label for="technology">Technology</label>
+                  <label for="technology"><small><sup><i class="fa fa-asterisk" aria-hidden="true"></i></sup></small>Technology</label>
                   <select formControlName="technology" class="custom-select my-1 mr-sm-2" id="technology">
                     <option selected>Choose...</option>
                     <option *ngFor="let technology of technologies" value={{technology.refId}}>{{technology.refCode}}
@@ -118,7 +125,7 @@
                   </select>
                 </div>
                 <div class="col-md-4 mb-3">
-                  <label for="department">Department</label>
+                  <label for="department"><small><sup><i class="fa fa-asterisk" aria-hidden="true"></i></sup></small>Department</label>
                   <select formControlName="department" class="custom-select my-1 mr-sm-2" id="department">
                     <option selected>Choose...</option>
                     <option *ngFor="let department of departments" value={{department.refId}}>{{department.refCode}}
@@ -126,11 +133,26 @@
                   </select>
                 </div>
                 <div class="col-md-4 mb-3">
-                  <label for="hiringStatus">Hiring Status</label>
+                  <label for="hiringStatus"><small><sup><i class="fa fa-asterisk" aria-hidden="true"></i></sup></small>Hiring Status</label>
                   <select formControlName="hiringStatus" class="custom-select my-1 mr-sm-2" id="hiringStatus">
                     <option selected>Choose...</option>
                     <option *ngFor="let status of hiringStatus" value={{status.refId}}>{{status.refCode}}</option>
                   </select>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-md-4 mb-3">
+                  <label for="fteHeadCount"><small><sup><i class="fa fa-asterisk" aria-hidden="true"></i></sup></small>FT Head Count</label>
+                  <select formControlName="fteHeadCount" class="custom-select my-1 mr-sm-2" id="fteHeadCount">
+                    <option selected>Choose...</option>
+                    <option *ngFor="let ftHeadCount of ftHeadCounts" value={{ftHeadCount.refId}}>
+                      {{ftHeadCount.refCode}}
+                    </option>
+                  </select>
+                </div>
+                <div class="col-md-8 mb-3">
+                  <label for="remarks">Remarks</label>
+                  <input type="text" formControlName="remarks" class="form-control" id="remarks" />
                 </div>
               </div>
   

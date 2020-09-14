@@ -45,7 +45,9 @@ export class PositionComponent implements OnInit {
           { "data": "serviceType" },
           { "data": "technology" },
           { "data": "hiringStatus" },
-          { "data": "department" }
+          { "data": "department" },
+          { "data": "fteHeadCount" },
+          { "data": "remarks" }
         ],
         "lengthMenu": [[-1, 5, 10, 25, 50], ["All", 5, 10, 25, 50]],
         initComplete: function () {

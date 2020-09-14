@@ -26,6 +26,8 @@ export class EditPositionComponent implements OnInit {
   technologies = [];
   positionTypes = [];
   usLeaders = [];
+  workTypes = [];
+  ftHeadCounts = [];
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -47,10 +49,12 @@ export class EditPositionComponent implements OnInit {
       usPoc: new FormControl('', Validators.required),
       usLeader: new FormControl('', Validators.required),
       billingCode: new FormControl('', Validators.required),
-      service: new FormControl('', Validators.required),
+      serviceType: new FormControl('', Validators.required),
       technology: new FormControl('', Validators.required),
       department: new FormControl('', Validators.required),
-      hiringStatus: new FormControl('', Validators.required)
+      hiringStatus: new FormControl('', Validators.required),
+      fteHeadCount: new FormControl('', Validators.required),
+      remarks: new FormControl('')
     });
 
     var getRefcode = this.http.get(EndService.GetRefCodes);
@@ -65,6 +69,8 @@ export class EditPositionComponent implements OnInit {
       this.technologies = refcode.data.TECHNOLOGY;
       this.positionTypes = refcode.data.POSITION_TYPE;
       this.usLeaders = refcode.data.US_LEADER;
+      this.workTypes = refcode.data.WORK_TYPE;
+      this.ftHeadCounts = refcode.data.FT_HEAD_COUNT;
     });
 
 
@@ -82,10 +88,12 @@ export class EditPositionComponent implements OnInit {
         usPoc: position.data.usPoc,
         usLeader: position.data.usLeader,
         billingCode: position.data.billingCode,
-        service: position.data.serviceType,
+        serviceType: position.data.serviceType,
         technology: position.data.technology,
         department: position.data.department,
         hiringStatus: position.data.hiringStatus,
+        fteHeadCount: position.data.fteHeadCount,
+        remarks: position.data.remarks
       });
 
     });

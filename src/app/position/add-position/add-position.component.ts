@@ -26,6 +26,8 @@ export class AddPositionComponent implements OnInit {
   technologies = [];
   positionTypes = [];
   usLeaders = [];
+  workTypes = [];
+  fteHeadCounts = [];
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -42,10 +44,12 @@ export class AddPositionComponent implements OnInit {
       usPoc: new FormControl('', Validators.required),
       usLeader: new FormControl('', Validators.required),
       billingCode: new FormControl('', Validators.required),
-      service: new FormControl('', Validators.required),
+      serviceType: new FormControl('', Validators.required),
       technology: new FormControl('', Validators.required),
       department: new FormControl('', Validators.required),
       hiringStatus: new FormControl('', Validators.required),
+      fteHeadCount: new FormControl('', Validators.required),
+      remarks: new FormControl('')
     });
 
     var getRefcode = this.http.get(EndService.GetRefCodes);
@@ -60,6 +64,8 @@ export class AddPositionComponent implements OnInit {
       this.technologies = refcode.data.TECHNOLOGY;
       this.positionTypes = refcode.data.POSITION_TYPE;
       this.usLeaders = refcode.data.US_LEADER;
+      this.workTypes = refcode.data.WORK_TYPE;
+      this.fteHeadCounts = refcode.data.FT_HEAD_COUNT;
     });
   }
 
