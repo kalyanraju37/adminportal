@@ -20,6 +20,7 @@ export class PositionComponent implements OnInit {
       $('#viewPositions').DataTable({
         "ajax": EndService.GetAllPositions,
         "autoWidth": false,
+        "order": [],
         // scrollY: "400px",
         // scrollX: true,
         // scrollCollapse: true,

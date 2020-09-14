@@ -32,6 +32,7 @@ export class AuditPositionComponent implements OnInit {
     $(document).ready(function () {
       $('#auditPositions').DataTable({
         "ajax": self.auditServiceUrl,
+        "order": [],
         "columns": [
           { "data": "positionId" },
           { "data": "version" },
@@ -49,6 +50,8 @@ export class AuditPositionComponent implements OnInit {
           { "data": "technology" },
           { "data": "hiringStatus" },
           { "data": "department" },
+          { "data": "fteHeadCount" },
+          { "data": "remarks" },
           { "data": "createdBy" },
           { "data": "createdAt" }
         ],
