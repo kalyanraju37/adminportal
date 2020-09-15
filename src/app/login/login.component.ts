@@ -16,7 +16,6 @@ export class LoginComponent implements OnInit {
     loginForm: FormGroup;
     loading = false;
     submitted = false;
-    returnUrl: string;
     error: string;
 
     constructor(
@@ -28,20 +27,13 @@ export class LoginComponent implements OnInit {
 
     ngOnInit() {
 
-        // remove user from local storage to log user out
-        localStorage.removeItem('currentUser');
-        localStorage.removeItem('loggedInUser');
 
         this.loginForm = this.formBuilder.group({
             username: ['', Validators.required],
             password: ['', Validators.required]
         });
 
-        // reset login status
-        this.authenticationService.logout();
-
-        // get return url from route parameters or default to '/'
-        this.returnUrl = this.route.snapshot.queryParams['dashboard'] || '/';
+   
     }
 
     // convenience getter for easy access to form fields
