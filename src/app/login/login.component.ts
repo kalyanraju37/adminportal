@@ -60,7 +60,9 @@ export class LoginComponent implements OnInit {
             .pipe(first())
             .subscribe(
                 data => {
+                    
                     if ('Failure' != data.status) {
+                        console.log('Success...');
                         this.router.navigate(['dashboard']);
                     }
                     else {
