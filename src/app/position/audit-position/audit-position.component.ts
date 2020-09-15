@@ -57,6 +57,9 @@ export class AuditPositionComponent implements OnInit {
         ],
         "lengthMenu": [[-1, 5, 10, 25, 50], ["All", 5, 10, 25, 50]],
         initComplete: function () {
+
+          // hide empty columns
+          this.hideEmptyColumns(this);
           // Apply the search
           this.api().columns().every(function () {
             var that = this;
@@ -78,4 +81,43 @@ export class AuditPositionComponent implements OnInit {
       $(this).html('<input type="text" placeholder="' + title + '" />');
     });
   }
+
+  /*
+ * check all cells of given datatable and hide each column containing only empty cells
+ * ATTENTION: this will only work if responsive-property in datatables is set to true
+ */
+ hideEmptyColumns(selector) {
+  var emptyColumnsIndexes = []; // store index of empty columns here
+  // check each column separately for empty cells
+  $(selector).find('th').each(function(i) {
+      // get all cells for current column
+      var cells = $(this).parents('table').find('tr td:nth-child(' + (i + 1) + ')');
+      var emptyCells = 0;
+
+      cells.each(function(cell) {
+          // increase emptyCells if current cell is empty, trim string to remove possible spaces in cell
+          if ($(this).html().trim() === '') {
+              emptyCells++;
+          }
+      });
+
+      // if all cells are empty push current column to emptyColumns
+      if (emptyCells === $(cells).length) {
+          emptyColumnsIndexes.push($(this).index());
+      }
+  });
+
+  // only make changes if there are columns to hide
+  if (emptyColumnsIndexes.length > 0) {
+      /* add class never to all empty columns
+          never is a special class of the Responsive extension:
+          Columns with class never will never be visible, regardless of the browser width, and the data will not be shown in a child row
+      */
+      $((selector).DataTable().columns(emptyColumnsIndexes).header()).addClass('never');
+      // Recalculate the column breakpoints based on the class information of the column header cells, class never will now be available to Responsive extension
+      $(selector).DataTable().columns.adjust().responsive.rebuild();
+      // immediatly call recalc to have Responsive extension updae the display for the cahnge in classes
+      $(selector).DataTable().columns.adjust().responsive.recalc();
+  }
+}
 }
