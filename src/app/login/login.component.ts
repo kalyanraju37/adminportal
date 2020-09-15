@@ -61,7 +61,7 @@ export class LoginComponent implements OnInit {
             .subscribe(
                 data => {
                     if ('Failure' != data.status) {
-                        this.router.navigate([EndService.Dashboard]);
+                        this.router.navigate(['dashboard']);
                     }
                     else {
 
